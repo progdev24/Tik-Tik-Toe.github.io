@@ -3,9 +3,16 @@ let resetBtn = document.querySelector("#reset-btn");
 let newGameBtn = document.querySelector("#new-btn");
 let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector("#msg");
+let pointForO = document.querySelector("#point-for-O");
+let pointForX = document.querySelector("#point-for-X");
+let resetLeaderboard = document.querySelector("#reset-leaderboard");
+let headerLeaderboard = document.querySelector("#header-leaderboard");
+
 
 let turnO = true;   //playerX,playerO
 let count = 0;      //To track Draw
+let pointForOVal = 0;   //for leaderboard
+let pointForXVal = 0;
 
 const winPatterns = [
     [0, 1, 2],
@@ -23,7 +30,16 @@ const resetGame = () => {
     count = 0;
     enableBoxes();
     msgContainer.classList.add("hide");
+    headerLeaderboard.classList.remove("hide");
     resetBtn.classList.remove("hide");
+}
+const resetGameByResetLeaderbaord = () => {
+    resetGame();
+    pointForO.innerHTML = 0;
+    pointForOVal = 0;
+    pointForXVal = 0;
+    pointForX.innerHTML = 0;
+    resetLeaderboard.classList.add("hide");
 }
 
 boxes.forEach((box) => {
@@ -50,6 +66,7 @@ const gameDraw = () => {
     msg.innerText = "Game was a draw!!";
     msg.style.color = "#ffc508";
     msgContainer.classList.remove("hide");
+    headerLeaderboard.classList.add("hide");
     resetBtn.classList.add("hide");
     disableBoxes();
 }
@@ -70,8 +87,17 @@ const enableBoxes = () => {
 const showWinner = (winner) => {
     msg.innerText = `Congratulations, Winner is ${winner}`;
     msgContainer.classList.remove("hide");
+    headerLeaderboard.classList.add("hide");
     resetBtn.classList.add("hide");
+    resetLeaderboard.classList.remove("hide");
     disableBoxes();
+    if(winner === "O"){
+        pointForOVal++;
+        pointForO.innerHTML = pointForOVal;
+    }else{
+        pointForXVal++;
+        pointForX.innerHTML = pointForXVal;
+    }
 }
 
 const checkWinner = () => {
@@ -91,3 +117,4 @@ const checkWinner = () => {
 
 newGameBtn.addEventListener("click", resetGame);
 resetBtn.addEventListener("click", resetGame);
+resetLeaderboard.addEventListener("click", resetGameByResetLeaderbaord);

@@ -6,6 +6,28 @@ body{
     background-color: #548687;
     text-align: center;
 }
+.header{
+    max-width: 1300px;
+    margin: auto;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+#title{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#title h1{
+    font-size: 7vmin;
+}
+.fixed{
+    text-decoration: none;
+    cursor: pointer;
+    color: #082309;
+    font-size: 1.25rem;
+}
 .container{
     height: 70vh;
     display: flex;
@@ -29,26 +51,18 @@ body{
     border: none;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
     font-size: 8vmin;
-}
-#reset-btn{
-    padding: 1rem;
-    font-size: 1.25rem;
-    background-color: #191913;
-    color: #fff;
-    border-radius: 1rem;
-    border: none;
-}
-button{
     cursor: pointer;
 }
-#new-btn{
+.btn{
     padding: 1rem;
     font-size: 1.25rem;
     background-color: #191913;
     color: #fff;
     border-radius: 1rem;
     border: none;
+    cursor: pointer;
 }
+
 #msg{
     color: #ffffc7;
     font-size: 5vmin;
@@ -62,5 +76,44 @@ button{
     gap: 4rem;
 }
 .hide{
+    display: none;
+}
+
+/* leaderboard */
+
+.small-container{
+    max-width: 1080px;
+    margin: 80px auto;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: #ffffc7;
+    border-radius: 1rem;
+    border: 1px solid #ffffc7;
+}
+.small-container #Leaderboard{
+    margin: 30px 0 30px 0;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+tr{
+    margin: 4px 0;
+}
+
+th{
+    text-align: left;
+    padding: 5px;
+}
+td{
+    text-align: left;
+    padding: 10px 5px;
+}
+#reset-leaderboard{
+    margin: 10px 0;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+#fixed{
     display: none;
 }

@@ -7,12 +7,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="header">
+        <div id="title">
+        <h1>Tik-Tak-Toe</h1>
+        <a class="fixed" id="header-leaderboard" href="#Leaderboard"><p>Leaderboard</p></a>
+        </div>
+        </div>
     <div class="msg-container hide">
         <p id="msg">Winner</p>
-        <button id="new-btn">New Game</button>
+        <a class="fixed" href="#Leaderboard"><p>Leaderboard</p></a>
+        <button id="new-btn" class="btn">New Game</button>
     </div>
     <main>
-        <h1>Tik-Tak-Toe</h1>
         <div class="container">
         <div class="game">
             <button class="box"></button>
@@ -26,8 +32,25 @@
             <button class="box"></button>
         </div>
         </div>
-        <button id="reset-btn">Reset Game</button>
+        <button id="reset-btn" class="btn">Reset Game</button>
     </main>
+
+    <div class="small-container">
+        <h3 id="Leaderboard">Leaderboard</h3>
+    <table>
+        <tr>
+            <th>Player</th>
+            <th>O</th>
+            <th>X</th>
+        </tr>
+        <tr>
+            <td>Wins</td>
+            <td id="point-for-O">0</td>
+            <td id="point-for-X">0</td>
+        </tr>
+    </table>
+    <button id="reset-leaderboard" class="btn hide">Reset Leaderboard</buttonid=>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
