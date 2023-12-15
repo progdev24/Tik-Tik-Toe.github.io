@@ -17,10 +17,18 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
 }
 #title h1{
-    font-size: 7vmin;
+    font-size: 1.5rem;
+}
+@media only screen and (max-width:400px){
+    .header{
+        padding-right: 1px;
+        padding-left: 2px;
+    }
+    #title{
+        padding: 20px 0;
+    }
 }
 .fixed{
     text-decoration: none;
