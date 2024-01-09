@@ -81,6 +81,7 @@ const enableBoxes = () => {
     for(let box of boxes){
         box.disabled = false;
         box.innerText = "";
+        box.removeAttribute("style", "background-color");
     }
 }
 
@@ -90,6 +91,7 @@ const showWinner = (winner) => {
     headerLeaderboard.classList.add("hide");
     resetBtn.classList.add("hide");
     resetLeaderboard.classList.remove("hide");
+    
     disableBoxes();
     if(winner === "O"){
         pointForOVal++;
@@ -99,6 +101,7 @@ const showWinner = (winner) => {
         pointForX.innerHTML = pointForXVal;
     }
 }
+let q;
 
 const checkWinner = () => {
     for(let pattern of winPatterns){
@@ -109,12 +112,14 @@ const checkWinner = () => {
         if(pos1Val != "" && pos2Val != "" && pos3Val != ""){
             if(pos1Val === pos2Val && pos2Val === pos3Val){
                 showWinner(pos1Val);
+                boxes[pattern[0]].setAttribute("style", "background-color:#ffffc7");
+                boxes[pattern[1]].setAttribute("style", "background-color:#ffffc7");
+                boxes[pattern[2]].setAttribute("style", "background-color:#ffffc7");
                 return true;
             }
         }
     }
 }
-
 newGameBtn.addEventListener("click", resetGame);
 resetBtn.addEventListener("click", resetGame);
 resetLeaderboard.addEventListener("click", resetGameByResetLeaderbaord);
